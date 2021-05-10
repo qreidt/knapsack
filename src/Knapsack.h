@@ -14,17 +14,23 @@ class Knapsack {
 public:
 	int size = 0;
 	int item_count;
-	std::vector<Bag> rows;
 	std::vector<Item> items;
+	Bag last_bag;
+	Bag current_bag;
+	std::vector<Bag> history;
 
 	Knapsack(int size, std::vector<Item> items);
 
 	float solve();
 
-	void evaluateItem(Item item, int bag_index, int item_index);
+	void evaluateItem(Item item, int item_index);
 
-	void setItemValue(int bag_index, int item_index, float value);
-	float getItemValue(int bag_index, int item_index);
+	float getLastItemValue(int item_index);
+
+	void setItemValue(int item_index, float value);
+	float getItemValue(int item_index);
+
+	void addBagToHistory(Bag bag);
 };
 
 

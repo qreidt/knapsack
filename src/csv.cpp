@@ -17,11 +17,11 @@ void write_table (std::string path, Knapsack knapsack) {
 	// create and open the .csv file
 	fs.open(path, ios::out | ios::trunc);
 
-	for (int i = 1; i <= knapsack.item_count; ++i) {
+	for (int i = 1; i <= knapsack.item_count; i++) {
 
-		for (int j = 1; j <= knapsack.size; ++j) {
+		for (int j = 1; j <= knapsack.size; j++) {
 
-			fs << knapsack.getItemValue(i, j);
+			fs << knapsack.history[i].cells[j];
 
 			if (j + 1 <= knapsack.size) {
 				fs << ",";
